@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import "./AdDesigner.css"
+import Ad from "../Ad/Ad";
 
 const AdDesigner = () => {
     const [selectedFlavor, setSelectedFlavor] = useState<string>("Blue Moon");
@@ -11,10 +12,11 @@ const AdDesigner = () => {
             <h2>
                 Ad Designer
             </h2>
-            <div className={`ad ${lightTheme ? "light" : "dark"}`}>
-                <p style={{ fontSize: `${fontSize * 0.7}px` }}>Vote For</p>
-                <p style={{ fontSize: `${fontSize * 2}px`, fontFamily: "Caveat" }}>{selectedFlavor}</p>
-            </div>
+            <Ad
+                flavor={selectedFlavor}
+                fontSize={fontSize + 1}
+                darkTheme={!lightTheme}
+            />
             <div>
                 <h3>What to Support</h3>
                 <button

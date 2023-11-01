@@ -34,7 +34,7 @@ const Votes = () => {
                                 width: `${(blueMoonVotes / totalVotes) * 100}%`,
                                 backgroundColor: "#74d1d0"
                             }}
-                            ></div>
+                        ></div>
                     </>
                 )}
                 {blackCherryVotes > 0 && (

@@ -8,6 +8,11 @@ import Ad from '../Ad/Ad'
 const App = () => (
   <div className='App'>
     <Header user="Chirpus"/>
+    <div className='ad-container'> 
+      <Ad flavor="Blue Moon" fontSize={13} darkTheme={true}/>
+      <Ad flavor="Black Cherry" fontSize={24} darkTheme={false}/>
+      <Ad flavor="Superman" fontSize={36} darkTheme/>
+    </div>
     <AdDesigner />
     <Votes />
   </div>

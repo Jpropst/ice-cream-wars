@@ -1,7 +1,8 @@
 h2 {
-    font-family: "Caveat", sans-serif;
+    font-family: "Caveat";
     font-size: 35px;
     margin-bottom: 10px;
+    white-space: nowrap;
 }
 
 .votes {
