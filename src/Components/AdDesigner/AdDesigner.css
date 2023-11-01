@@ -1,17 +1,37 @@
+p {
+    margin: 10px;
+    white-space: nowrap;
+    transition: font-size 0.3s ease-in-out;
+    overflow-wrap: break-word;
+}
+
+.ad-designer {
+    padding: 5px;
+    border-right: 10px;
+    margin-right: 10px;
+}
+
 .font-size-container {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.light {
-    background-color: #fff;
-    color: #000;
-}
-
-.dark {
-    background-color: #000;
-    color: #fff;
+.ad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min-content;
+    padding: 10px;
+    padding-right: 20px;
+    border-right: 10px;
+    margin: 10px;
+    text-align: center;
+    box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 1);
+    max-width: 99%;
+    max-height: 90vh;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 button {
@@ -27,23 +47,29 @@ button {
     cursor: pointer;
     border-radius: 4px;
 }
-  
+
 button:focus {
     background-color: #1e60a9;
 }
-  
+
 button:disabled {
     background-color: gray;
-    cursor: not-allowed;
 }
-  
-.ad {
-    display: block;
-    align-items: flex-start;
-    width: 150px;
-    margin: 20px 20px;
-    padding: 10px;
-    border: 3px solid black;
-    text-align: center;
-    box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 1);
+
+.light {
+    background-color: #fff;
+    color: #000;
+    border: 3px solid #222;
+}
+
+.dark {
+    background-color: #222;
+    color: #fff;
+    border: 3px solid #fff;
+}
+
+@media screen and (min-width: 1201px) {
+    .ad-designer {
+        float: left;
+      }
 }

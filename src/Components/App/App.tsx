@@ -3,6 +3,7 @@ import './App.css'
 import Header from '../Header/Header'
 import AdDesigner from '../AdDesigner/AdDesigner'
 import Votes from '../Votes/Votes'
+import Ad from '../Ad/Ad'
 
 const App = () => (
   <div className='App'>

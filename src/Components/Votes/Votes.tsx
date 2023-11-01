@@ -2,43 +2,67 @@ import React, { useState } from "react"
 import "./Votes.css"
 
 const Votes = () => {
-    type VotesType = {
-        'Blue Moon': number;
-        'Moose Tracks': number;
-        'Superman': number;
-    }
-    const [votes, setVotes] = useState<VotesType>({
-        'Blue Moon': 0,
-        'Moose Tracks': 0,
-        'Superman': 0,
-    })
-    const handleVote = (flavor: keyof VotesType) => {
-        setVotes((prevVotes) => ({
-            ...prevVotes,
-            [flavor]: prevVotes[flavor] + 1,
-        }))
-    }
-    const totalVotes = Object.values(votes).reduce((a, b) => a + b, 0);
+    const [ blueMoonVotes, setBlueMoonVotes] = useState(0)
+    const [ blackCherryVotes, setBlackCherryVotes ] = useState(0)
+    const [ supermanVotes, setSupermanVotes ] = useState(0)
+
+    const totalVotes = blueMoonVotes + blackCherryVotes + supermanVotes
+
     return (
-        <div className="Votes">
-            <h2>Vote Here</h2>
-            {Object.keys(votes).map((flavor) => {
-                const flavorVotes = votes[flavor as keyof VotesType]
-                const percentage = totalVotes === 0 ? 0 : (flavorVotes / totalVotes) * 100
-                return (
-                    <div key={flavor} className="vote-item">
-                        <button 
-                            onClick={() => handleVote(flavor as keyof VotesType)}>
-                            {flavor}
-                        </button>
+        <div className="votes">
+            <h2>
+                Vote Here
+            </h2>
+            <div className="votes-buttons">
+                <button onClick={() => setBlackCherryVotes(blackCherryVotes + 1)}>
+                    Black Cherry
+                </button>
+                <button onClick={() => setBlueMoonVotes(blueMoonVotes + 1)}>
+                    Blue Moon
+                </button>
+                <button onClick={() => setSupermanVotes(supermanVotes + 1)}>
+                    Superman
+                </button>
+            </div>
+            <div className="votes-display">
+                {blueMoonVotes > 0 && (
+                    <>
+                        Blue Moon: {blueMoonVotes} ({((blueMoonVotes / totalVotes) * 100).toFixed(2)}%)
                         <div 
-                            className="bar" 
-                            style={{ width: `${percentage}%` }}>
-                        </div>
-                        <p>{flavorVotes} ({percentage.toFixed(1)}%)</p>
-                    </div>
-                )
-            })}
+                            className="vote-bar"
+                            style={{
+                                width: `${(blueMoonVotes / totalVotes) * 100}%`,
+                                backgroundColor: "#74d1d0"
+                            }}
+                            ></div>
+                    </>
+                )}
+                {blackCherryVotes > 0 && (
+                    <>
+                    Black Cherry: {blackCherryVotes} ({((blackCherryVotes / totalVotes) * 100).toFixed(2)}%)
+                        <div 
+                            className="vote-bar"
+                            style={{
+                                width: `${(blackCherryVotes / totalVotes) * 100}%`,
+                                backgroundColor: "#f2857e"
+                            }}
+                        ></div>
+                    </> 
+                )}
+                {supermanVotes > 0 && (
+                    <>
+                    Superman: {supermanVotes} ({((supermanVotes / totalVotes) * 100).toFixed(2)}%)
+                        <div 
+                            className="vote-bar"
+                            style={{ 
+                                width: `${(supermanVotes / totalVotes) * 100}%`,
+                                background: "linear-gradient(#0060aa 0% 33%, #ffed10 33% 66%, #e20025 66% 100%)"
+                            }}
+                        ></div>
+                    </> 
+                )}
+            </div>
+            {totalVotes === 0 && <>No Votes Yet</>}
         </div>
     )
 }

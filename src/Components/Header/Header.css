@@ -1,11 +1,21 @@
 .header {
-  font-family: "Caveat", sans-serif;
-  color: #0e3c7c;
+  display: flex;
+  align-items: center;
+  color: #0e3c7e;
   text-align: center;
   padding: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.395);
+  border-bottom: 4px solid #e0e0e0;
+}
+
+.ice-cream-wars-header {
+  text-align: center;
+  font-family: "Caveat";
+  flex: 1;
+  margin: 0;
 }
 
 .username {
-  margin-right: 20px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  font-size: small;
 }
